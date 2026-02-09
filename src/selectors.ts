@@ -10,9 +10,7 @@ export const SEARCH_BOX_SELECTORS = [
 
 export const EXCLUDED_SELECTORS = [
   "[data-initq]",
-  ".related-question-pair",
-  "#rhs",
-  ".kp-blk",
+  "[data-sgrd]",
 ] as const;
 
 export const OBSERVER_TARGETS = ["#rso", "#search"] as const;
