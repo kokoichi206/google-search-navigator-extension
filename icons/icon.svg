@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8f9fa"/>
+      <stop offset="100%" stop-color="#e8eaed"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="4" y="4" width="120" height="120" rx="24" ry="24" fill="url(#bg)" filter="url(#shadow)"/>
+
+  <!-- Search bar -->
+  <rect x="20" y="16" width="88" height="16" rx="8" fill="#dfe1e5"/>
+  <circle cx="98" cy="24" r="4.5" fill="none" stroke="#5f6368" stroke-width="1.8"/>
+  <line x1="101" y1="27" x2="104" y2="30" stroke="#5f6368" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Result rows -->
+  <!-- Row 1 -->
+  <rect x="24" y="40" width="50" height="4" rx="2" fill="#1a73e8"/>
+  <rect x="24" y="47" width="80" height="3" rx="1.5" fill="#bdc1c6"/>
+  <rect x="24" y="53" width="65" height="3" rx="1.5" fill="#bdc1c6"/>
+
+  <!-- Row 2 (highlighted) -->
+  <rect x="18" y="63" width="3" height="22" rx="1.5" fill="#1a73e8"/>
+  <rect x="26" y="65" width="55" height="4" rx="2" fill="#1a73e8"/>
+  <rect x="26" y="72" width="78" height="3" rx="1.5" fill="#5f6368"/>
+  <rect x="26" y="78" width="60" height="3" rx="1.5" fill="#5f6368"/>
+
+  <!-- Row 3 -->
+  <rect x="24" y="91" width="45" height="4" rx="2" fill="#1a73e8"/>
+  <rect x="24" y="98" width="75" height="3" rx="1.5" fill="#bdc1c6"/>
+  <rect x="24" y="104" width="55" height="3" rx="1.5" fill="#bdc1c6"/>
+
+  <!-- Up arrow -->
+  <g transform="translate(104, 44)">
+    <polygon points="0,-6 5,2 -5,2" fill="#1a73e8"/>
+  </g>
+
+  <!-- Down arrow -->
+  <g transform="translate(104, 100)">
+    <polygon points="0,6 5,-2 -5,-2" fill="#1a73e8"/>
+  </g>
+</svg>
