@@ -1,0 +1,7 @@
+.gsn-active {
+  border-left: 3px solid #1a73e8;
+  padding-left: 12px;
+  transform: translateX(-4px);
+  transition: border-left 0.15s ease, transform 0.15s ease;
+  border-radius: 2px;
+}
