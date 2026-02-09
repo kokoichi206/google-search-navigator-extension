@@ -1,14 +1,3 @@
-export const RESULT_SELECTORS = [
-  "#rso > div[data-hveid]",
-  "#search .g:not(.kno-kp)",
-  "#rso > div > div[data-hveid]",
-] as const;
-
-export const RESULT_LINK_SELECTORS = [
-  "a h3",
-  "a[data-ved] h3",
-] as const;
-
 export const PAGINATION = {
   next: "#pnnext",
   prev: "#pnprev",
@@ -20,6 +9,7 @@ export const SEARCH_BOX_SELECTORS = [
 ] as const;
 
 export const EXCLUDED_SELECTORS = [
+  "[data-initq]",
   ".related-question-pair",
   "#rhs",
   ".kp-blk",

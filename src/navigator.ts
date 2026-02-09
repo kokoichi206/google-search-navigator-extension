@@ -35,7 +35,12 @@ function setActiveIndex(index: number): void {
   if (currentIndex >= 0 && currentIndex < results.length) {
     const result = results[currentIndex];
     applyHighlight(result.element);
-    result.element.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    const isFirst = currentIndex === 0;
+    const isLast = currentIndex === results.length - 1;
+    result.element.scrollIntoView({
+      block: isFirst ? "end" : isLast ? "start" : "nearest",
+      behavior: "smooth",
+    });
   }
 }
 
@@ -46,17 +51,15 @@ function handleKeyDown(e: KeyboardEvent): void {
     case "ArrowDown": {
       e.preventDefault();
       if (results.length === 0) return;
-      const next = currentIndex + 1 < results.length ? currentIndex + 1 : 0;
-      setActiveIndex(next);
+      if (currentIndex + 1 >= results.length) return;
+      setActiveIndex(currentIndex + 1);
       break;
     }
 
     case "ArrowUp": {
       e.preventDefault();
-      if (results.length === 0) return;
-      const prev =
-        currentIndex - 1 >= 0 ? currentIndex - 1 : results.length - 1;
-      setActiveIndex(prev);
+      if (results.length === 0 || currentIndex <= 0) return;
+      setActiveIndex(currentIndex - 1);
       break;
     }
 

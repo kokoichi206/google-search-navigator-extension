@@ -1,19 +1,43 @@
 import { defineConfig, type Plugin } from "vite";
-import { writeFileSync, mkdirSync } from "fs";
+import { writeFileSync, copyFileSync } from "fs";
 import { resolve } from "path";
 
 function manifestPlugin(isDev: boolean): Plugin {
   return {
     name: "generate-manifest",
     writeBundle() {
+      const distDir = resolve(__dirname, "dist");
+      const iconsDir = resolve(__dirname, "icons");
+      for (const size of [16, 48, 128]) {
+        copyFileSync(
+          resolve(iconsDir, `icon-${size}.png`),
+          resolve(distDir, `icon-${size}.png`)
+        );
+      }
+
       const manifest: Record<string, unknown> = {
         manifest_version: 3,
         name: "Google Search Navigator",
         version: "0.1.0",
         description: "Navigate Google search results with keyboard arrow keys",
+        icons: {
+          "16": "icon-16.png",
+          "48": "icon-48.png",
+          "128": "icon-128.png",
+        },
         content_scripts: [
           {
-            matches: ["*://www.google.*/search*"],
+            matches: [
+              "*://www.google.com/search*",
+              "*://www.google.co.jp/search*",
+              "*://www.google.co.uk/search*",
+              "*://www.google.de/search*",
+              "*://www.google.fr/search*",
+              "*://www.google.ca/search*",
+              "*://www.google.com.au/search*",
+              "*://www.google.co.in/search*",
+              "*://www.google.com.br/search*",
+            ],
             js: ["content.js"],
             run_at: "document_idle",
           },
