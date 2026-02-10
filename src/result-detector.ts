@@ -29,7 +29,7 @@ function findContainer(
 ): HTMLElement | null {
   let el: HTMLElement | null = anchor;
   while (el && el !== root) {
-    const parent = el.parentElement;
+    const parent: HTMLElement | null = el.parentElement;
     if (!parent || parent === root) break;
 
     const siblingsWithH3 = Array.from(parent.children).filter((s) =>
