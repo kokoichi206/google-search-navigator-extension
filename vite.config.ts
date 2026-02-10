@@ -1,6 +1,10 @@
 import { defineConfig, type Plugin } from "vite";
-import { writeFileSync, copyFileSync } from "fs";
+import { readFileSync, writeFileSync, copyFileSync } from "fs";
 import { resolve } from "path";
+
+const pkg = JSON.parse(
+  readFileSync(resolve(__dirname, "package.json"), "utf-8")
+);
 
 function manifestPlugin(isDev: boolean): Plugin {
   return {
@@ -18,7 +22,7 @@ function manifestPlugin(isDev: boolean): Plugin {
       const manifest: Record<string, unknown> = {
         manifest_version: 3,
         name: "Google Search Navigator",
-        version: "0.1.0",
+        version: pkg.version,
         description: "Navigate Google search results with keyboard arrow keys",
         icons: {
           "16": "icon-16.png",
