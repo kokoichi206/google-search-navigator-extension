@@ -35,10 +35,9 @@ function setActiveIndex(index: number): void {
   if (currentIndex >= 0 && currentIndex < results.length) {
     const result = results[currentIndex];
     applyHighlight(result.element);
-    const isFirst = currentIndex === 0;
     const isLast = currentIndex === results.length - 1;
     result.element.scrollIntoView({
-      block: isFirst ? "end" : isLast ? "start" : "nearest",
+      block: isLast ? "start" : "nearest",
       behavior: "smooth",
     });
   }
@@ -107,11 +106,19 @@ export function refreshResults(): void {
     const restored = results.findIndex((r) => r.link.href === previousUrl);
     if (restored >= 0) {
       setActiveIndex(restored);
+      return;
     }
+  }
+
+  if (results.length > 0) {
+    setActiveIndex(0);
   }
 }
 
 export function initialize(): void {
   results = detectResults();
+  if (results.length > 0) {
+    setActiveIndex(0);
+  }
   document.addEventListener("keydown", handleKeyDown);
 }
