@@ -2,6 +2,8 @@
 
 A Chrome extension for navigating Google search results entirely with the keyboard.
 
+[Install from Chrome Web Store](https://chromewebstore.google.com/detail/google-search-navigator/lbffnafdkndmngnbcfboggnbdckkbddh)
+
 ## Features
 
 - `↓` / `j` to move to the next search result
