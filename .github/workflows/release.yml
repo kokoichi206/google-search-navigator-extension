@@ -59,7 +59,7 @@ jobs:
           files: google-search-navigator-${{ inputs.tag || github.ref_name }}.zip
 
       - name: Publish to Chrome Web Store
-        uses: kokoichi206/chrome-webstore-publish@v0.1.0
+        uses: kokoichi206/chrome-webstore-publish@v0.1.1
         with:
           service-account-key-json: ${{ secrets.GOOGLE_SA_KEY_JSON }}
           extension-id: ${{ env.CWS_EXTENSION_ID }}
