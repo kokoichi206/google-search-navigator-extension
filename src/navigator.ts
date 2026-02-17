@@ -47,7 +47,8 @@ function handleKeyDown(e: KeyboardEvent): void {
   if (isInputFocused()) return;
 
   switch (e.key) {
-    case "ArrowDown": {
+    case "ArrowDown":
+    case "j": {
       e.preventDefault();
       if (results.length === 0) return;
       if (currentIndex + 1 >= results.length) return;
@@ -55,14 +56,16 @@ function handleKeyDown(e: KeyboardEvent): void {
       break;
     }
 
-    case "ArrowUp": {
+    case "ArrowUp":
+    case "k": {
       e.preventDefault();
       if (results.length === 0 || currentIndex <= 0) return;
       setActiveIndex(currentIndex - 1);
       break;
     }
 
-    case "ArrowRight": {
+    case "ArrowRight":
+    case "l": {
       const nextPage = document.querySelector<HTMLAnchorElement>(
         PAGINATION.next
       );
@@ -70,7 +73,8 @@ function handleKeyDown(e: KeyboardEvent): void {
       break;
     }
 
-    case "ArrowLeft": {
+    case "ArrowLeft":
+    case "h": {
       const prevPage = document.querySelector<HTMLAnchorElement>(
         PAGINATION.prev
       );
